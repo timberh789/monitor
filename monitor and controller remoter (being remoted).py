@@ -2,8 +2,9 @@ from pynput.mouse import Button, Controller
 from pynput import mouse, keyboard
 from pynput.keyboard import Key 
 import threading
-from socket import*
-from PIL import ImageGrab
+from socket import *
+import mss
+import numbers
 
 mouse = Controller()
 
@@ -95,43 +96,42 @@ def onrelease(key):
 
 #keyboard end
 
-def sendmsgcall(host='0.0.0.0', port= '5000'):
+def sendmsgcall(host, port):
     monitor = socket()
     monitor.connect(host,port)
-
-def screenshot()
-    try:
-        monitor.listen(5)
-        golbal end(0)
-        conn,addr = monitor.accept()
-        thread = Thread(target=retreive_screenshot, args=(conn,))
-        thread.start()
+def screenshot():
+    screen = Thread(target = sendscreen())
+    screen.start
+def screenshottheard():
+    screenshotphoto = mss.shot()
+def stop:
+    screen.stop
+ 
 #screenshot
 
-             
-def retreive_screenshot(conn):
-    with mss() as sct:
-        # The region to capture
-        rect = {'top': 0, 'left': 0, 'width': WIDTH, 'height': HEIGHT}
-
-        while 'recording':
-            # Capture the screen
-            img = sct.grab(rect)
-            # Tweak the compression level here (0-9)
-            pixels = compress(img.rgb, 6)
-
-            # Send the size of the pixels length
-            size = len(pixels)
-            size_len = (size.bit_length() + 7) // 8
-            conn.send(bytes([size_len]))
-
-            # Send the actual pixels length
-            size_bytes = size.to_bytes(size_len, 'big')
-            conn.send(size_bytes)
-
-            # Send pixels
-            conn.sendall(pixels)
-
+def sendscreen():
+    screenshotphoto = mss.shot()
+    sendmsg(screenshotphoto)
+def getcomannd():
+    while 1=1:
+         while 1=1:
+              recv()
+              if data = "closemonitor":
+                    stop()
+                    raise SystemExit
+                    continue
+              elif data = "mouse to ":
+                mouseto()
+                continue
+              elif data = "clickleft":
+                clickleft()
+                continue
+              elif data = "clickright":
+                clickright()
+                continue
+              elif data = "
+                #to be continued
+                
 #recev
 
 def recv():
@@ -140,6 +140,18 @@ def recv():
 def sendmsg(msg):
     monitor.sendall(msg)
 
+def switch(msg):
+    if msg = "start monitor"
+       while 1=1 :
+            screenshot
+            get command
+            
+        
+    
+    
+#main
+
+sendmsgcall(0.0.0.0,5000)
 
 
 
