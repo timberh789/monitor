@@ -124,7 +124,8 @@ def getcomannd():
             pressleft()
         if data.index(3) = "pressright":
             pressright()
-        if data.index(3) = "
+        if data.index(3) = "releaseleft":
+            
             
             
             
