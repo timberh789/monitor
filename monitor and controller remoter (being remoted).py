@@ -100,13 +100,12 @@ def sendmsgcall(host, port):
     monitor = socket()
     monitor.connect(host,port)
 def screenshot():
-    screen = Thread(target = sendscreen())
+    screen = Thread(target = sendscreen, daemon=True)
     screen.start
 def screenshottheard():
     screenshotphoto = mss.shot()
-def stop:
-    screen.stop
- 
+
+
 #screenshot
 
 def sendscreen():
@@ -114,28 +113,29 @@ def sendscreen():
     sendmsg(screenshotphoto)
 def getcomannd():
     while 1=1:
-         while 1=1:
-              recv()
-              if data = "closemonitor":
-                    stop()
-                    raise SystemExit
-                    continue
-              elif data = "mouse to ":
-                mouseto()
-                continue
-              elif data = "clickleft":
-                clickleft()
-                continue
-              elif data = "clickright":
-                clickright()
-                continue
-              elif data = "
-                #to be continued
+        recv()
+        data = tuple(data1)
+        setmouse(data["xy"])
+        if data.index(1) = "clickleft" :
+            clickleft()
+        if data.index(2) = "clickright" :
+            clickright()
+        if data.index(3) = "pressleft" :
+            pressleft()
+        if data.index(3) = "pressright":
+            pressright()
+        if data.index(3) = "
+            
+            
+            
+def getcommanda():
+    gc = Thread(target = getcommand, daemon=True)
+    gc.start     
                 
 #recev
 
 def recv():
-    data = monitor.recvfrom()
+    data1 = monitor.recvfrom()
 
 def sendmsg(msg):
     monitor.sendall(msg)
@@ -144,7 +144,7 @@ def switch(msg):
     if msg = "start monitor"
        while 1=1 :
             screenshot
-            get command
+            getcommanda
             
         
     
